@@ -12,7 +12,8 @@ static constant TRUE =1
 static constant FALSE=0
 
 
-Menu Snapshot_Menu
+Menu StringFromList(0,Snapshot_Menu)
+	RemoveListItem(0,Snapshot_Menu)
 	"Save All Graphs"  ,/Q,Snapshot#SaveAll()
 	"Show Saved Graphs",/Q,Snapshot#ShowDirectory()
 	"-"
