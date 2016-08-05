@@ -6,7 +6,7 @@ constant    Snapshot_Resolution = 4 // 4 is default value of Igor Pro
 constant    Snapshot_ColorPrint = 0 // 0 means RGB and the others means CMYK
 strconstant Snapshot_Menu = "Snapshot"
 strconstant Snapshot_DefaultFormat = "png" // pdf, tiff, jpeg, png, pict, or eps
-strconstant Snapshot_DefaultHook = "" // BeforeSave, BeforeQuit, or BeforeSave;BeforeQuit
+strconstant Snapshot_DefaultHook = "" // Save, Quit, or Save;Quit
 
 Menu StringFromList(0,Snapshot_Menu),dynamic
 	RemoveListItem(0,Snapshot_Menu)
@@ -47,13 +47,11 @@ static Function/S AutoSaveMenuTitle()
 End
 static Function/S AutoSaveMenuItem(timing)
 	String timing
-	String name = "hookBefore"+timing
-	return check(GetNVAR(name,Has(name,Snapshot_DefaultHook)))+"Save Before "+timing
+	return check(GetNVAR("hookBefore"+timing,Has(timing,Snapshot_DefaultHook)))+"Save Before "+timing
 End
 static Function/S AutoSaveMenuCommand(timing)
 	String timing
-	String name = "hookBefore"+timing
-	Toggle("hookBefore"+timing,Has(name,Snapshot_DefaultHook))
+	Toggle("hookBefore"+timing,Has(timing,Snapshot_DefaultHook))
 End
 
 // Save
