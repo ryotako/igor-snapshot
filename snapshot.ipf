@@ -8,10 +8,6 @@ strconstant Snapshot_Menu = "Snapshot"
 strconstant Snapshot_DefaultFormat = "png" // pdf, tiff, jpeg, png, pict, or eps
 strconstant Snapshot_DefaultHook = "" // BeforeSave, BeforeQuit, or BeforeSave;BeforeQuit
 
-static constant TRUE =1
-static constant FALSE=0
-
-
 Menu StringFromList(0,Snapshot_Menu),dynamic
 	RemoveListItem(0,Snapshot_Menu)
 	"Save All Graphs"  ,/Q,Snapshot#SaveAll()
